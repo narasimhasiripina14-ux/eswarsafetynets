@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eswar Safety Nets</title>
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f0e7;
+    color: #123f36;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at center,
+            #174b41 0%,
+            #073b32 45%,
+            #052e28 100%
+        );
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.logo {
+    width: 110px;
+    height: 110px;
+
+    border: 1px solid #cbb477;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+
+    margin-bottom: 55px;
+
+    box-shadow: 0 0 35px rgba(203,180,119,.15);
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 105px);
+    font-weight: 400;
+    letter-spacing: -5px;
+}
+
+.hero .gold {
+    color: #d7bd76;
+
+    letter-spacing: 8px;
+
+    font-size: 20px;
+
+    margin-top: 18px;
+}
+
+.explore {
+    margin-top: 110px;
+
+    width: 320px;
+
+    padding: 20px 5px;
+
+    border-bottom: 1px solid #bda766;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    letter-spacing: 3px;
+
+    font-size: 15px;
+
+    transition: .3s;
+}
+
+.explore span {
+    color: #d7bd76;
+    font-size: 30px;
+}
+
+.explore:hover {
+    width: 350px;
+    color: #d7bd76;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(7,59,50,.96);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+
+    padding: 18px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.brand span {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #d7bd76;
+
+    margin-top: 3px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #d7bd76;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+.section {
+    padding: 110px 6%;
+}
+
+.small-title {
+    color: #788b83;
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: clamp(45px, 7vw, 85px);
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -3px;
+}
+
+.orange {
+    color: #d87863;
+}
+
+.description {
+    max-width: 750px;
+
+    margin-top: 35px;
+
+    color: #718079;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    padding: 30px 4% 100px;
+}
+
+.service-card {
+    height: 650px;
+
+    margin-bottom: 35px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+
+    align-items: flex-end;
+}
+
+
+/* Balcony image */
+
+.balcony {
+    background-image:
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85");
+}
+
+
+/* Cricket image */
+
+.cricket {
+    background-image:
+    url("https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1400&q=85");
+}
+
+
+.service-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,40,34,.88)
+        );
+}
+
+.card-content {
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    padding: 50px;
+
+    max-width: 850px;
+}
+
+.card-number {
+    letter-spacing: 4px;
+
+    font-size: 13px;
+}
+
+.card-content h2 {
+    font-size: clamp(40px, 6vw, 70px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin: 25px 0;
+}
+
+.card-content p {
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #eee;
+
+    max-width: 700px;
+}
+
+.card-link {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    color: #e3c47b;
+
+    text-decoration: none;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #f4f0e7;
+}
+
+.about-box {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    margin-top: 70px;
+}
+
+.about-image {
+    min-height: 500px;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.about-text {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.about-text h2 {
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+.about-text p {
+    color: #718079;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   PROCESS
+========================= */
+
+.process {
+    background: #073b32;
+
+    color: white;
+}
+
+.process .small-title {
+    color: #aebdb6;
+}
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    margin-top: 90px;
+}
+
+.process-item {
+    border-top: 1px solid rgba(255,255,255,.2);
+
+    padding-top: 30px;
+}
+
+.circle {
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid #a9b7ad;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d7bd76;
+}
+
+.process-item h3 {
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-top: 25px;
+}
+
+.process-item p {
+    color: #b9c6c0;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-top: 15px;
+
+    max-width: 450px;
+}
+
+
+/* =========================
+   WHY US
+========================= */
+
+.why {
+    padding: 100px 6%;
+}
+
+.points {
+    margin-top: 50px;
+
+    border-top: 1px solid #ddd6c9;
+}
+
+.point {
+    padding: 28px 5px;
+
+    border-bottom: 1px solid #ddd6c9;
+
+    font-size: 19px;
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.check {
+    color: #d87863;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    background: #f4f0e7;
+
+    padding: 110px 6%;
+}
+
+.form-box {
+    background: white;
+
+    max-width: 800px;
+
+    margin-top: 60px;
+
+    padding: 45px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.06);
+}
+
+.form-box h2 {
+    font-size: 32px;
+
+    font-weight: 400;
+
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+
+    color: #53665e;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid #ddd8ce;
+
+    background: #faf9f5;
+
+    padding: 18px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #123f36;
+}
+
+textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border: none;
+
+    background: #103f36;
+
+    color: white;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #d87863;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #073b32;
+
+    color: white;
+
+    padding: 60px 6%;
+
+    text-align: center;
+}
+
+footer h2 {
+    font-weight: 400;
+
+    letter-spacing: 3px;
+}
+
+footer p {
+    color: #aebdb6;
+
+    margin-top: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero .gold {
+        font-size: 15px;
+
+        letter-spacing: 5px;
+    }
+
+    .explore {
+        margin-top: 80px;
+    }
+
+    .section {
+        padding: 80px 7%;
+    }
+
+    .services {
+        padding: 20px 4%;
+    }
+
+    .service-card {
+        height: 570px;
+    }
+
+    .card-content {
+        padding: 30px;
+    }
+
+    .card-content p {
+        font-size: 16px;
+    }
+
+    .about-box {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .about-image {
+        min-height: 400px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .form-box {
+        padding: 25px;
+    }
+
+    .point {
+        align-items: flex-start;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     FIRST SCREEN
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="logo">
+        🪶
+    </div>
+
+    <h1>ESWAR</h1>
+
+    <div class="gold">
+        SAFETY NETS
+    </div>
+
+    <a href="#services" class="explore">
+        EXPLORE SERVICES
+        <span>→</span>
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        ESWAR
+        <span>SAFETY NETS</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     SERVICES INTRO
+========================= -->
+
+<section class="section">
+
+    <div class="small-title">
+        TWO SPACES. ONE CONSIDERED APPROACH.
+    </div>
+
+    <h1 class="section-title">
+        Safety that works
+        <br>
+        with <span class="orange">your space.</span>
+    </h1>
+
+    <p class="description">
+        Every opening and playing area is different.
+        We start with how you use it, then talk through
+        a netting solution designed around your requirements.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="services" id="services">
+
+
+    <!-- BALCONY -->
+
+    <div class="service-card balcony">
+
+        <div class="card-content">
+
+            <div class="card-number">
+                01 — AT HOME
+            </div>
+
+            <h2>
+                Balcony safety nets
+            </h2>
+
+            <p>
+                A discreet protective barrier for open
+                balconies, designed around the shape of
+                your space and the way your household
+                uses it.
+            </p>
+
+            <a href="#contact" class="card-link">
+                Talk about your balcony →
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CRICKET -->
+
+    <div class="service-card cricket">
+
+        <div class="card-content">
+
+            <div class="card-number">
+                02 — FOR THE GAME
+            </div>
+
+            <h2>
+                Cricket & sports
+                <br>
+                practice nets
+            </h2>
+
+            <p>
+                Professional netting for cricket and
+                other sports practice spaces. We help
+                plan a layout based on your available
+                space and training requirements.
+            </p>
+
+            <a href="#contact" class="card-link">
+                Plan a practice space →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section about" id="about">
+
+    <div class="small-title">
+        MADE TO FIT. MADE TO FEEL RIGHT.
+    </div>
+
+    <h1 class="section-title">
+        A little more
+        <br>
+        <span class="orange">peace</span> of mind.
+    </h1>
+
+    <p class="description">
+        Custom-fit safety netting for balconies,
+        cricket nets and other sports practice spaces.
+        Tell us what you need; we'll help you work
+        out what fits.
+    </p>
+
+
+    <div class="about-box">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+            <h2>
+                Protection should feel
+                <span class="orange">
+                    part of the plan.
+                </span>
+            </h2>
+
+            <p>
+                We focus on understanding your space,
+                the fixing points and your priorities
+                before recommending the right netting
+                solution.
+            </p>
+
+            <p>
+                No guesswork. No one-size-fits-all
+                approach.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="section process">
+
+    <div class="small-title">
+        A STRAIGHTFORWARD START
+    </div>
+
+    <h1 class="section-title">
+        Good work begins
+        <br>
+        with <span class="orange">good questions.</span>
+    </h1>
+
+    <p class="description">
+        We make it easy to get from "I'm not sure
+        what I need" to a clear conversation about
+        the right next step.
+    </p>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-item">
+
+            <div class="circle">01</div>
+
+            <h3>
+                Tell us what's open
+            </h3>
+
+            <p>
+                Share what you're looking to protect
+                or build, and what matters most to you.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="circle">02</div>
+
+            <h3>
+                Talk through the details
+            </h3>
+
+            <p>
+                We'll ask about the space, dimensions
+                and how you plan to use it.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="circle">03</div>
+
+            <h3>
+                Explore a fit
+            </h3>
+
+            <p>
+                Discuss a custom-fit netting approach
+                for your requirements.
+            </p>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="circle">04</div>
+
+            <h3>
+                Know what comes next
+            </h3>
+
+            <p>
+                Get clear communication on the next
+                steps before moving forward.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY ESWAR
+========================= -->
+
+<section class="why">
+
+    <div class="small-title">
+        A CONSIDERED FIT
+    </div>
+
+    <h1 class="section-title">
+        Safety designed
+        <br>
+        <span class="orange">around you.</span>
+    </h1>
+
+    <div class="points">
+
+        <div class="point">
+            <span class="check">✓</span>
+            A conversation about your space
+            and what you want to achieve
+        </div>
+
+        <div class="point">
+            <span class="check">✓</span>
+            Attention to shape, edges and
+            practical fixing points
+        </div>
+
+        <div class="point">
+            <span class="check">✓</span>
+            Guidance specific to your home
+            or practice area
+        </div>
+
+        <div class="point">
+            <span class="check">✓</span>
+            Quality safety netting designed
+            for everyday use
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="small-title">
+        START WITH A CONVERSATION
+    </div>
+
+    <h1 class="section-title">
+        Tell us a little about
+        <br>
+        <span class="orange">your project.</span>
+    </h1>
+
+    <p class="description">
+        Share the basics and we'll understand
+        what you're looking for.
+    </p>
+
+
+    <form class="form-box" id="quoteForm">
+
+        <h2>
+            Request a quote
+        </h2>
+
+
+        <label>
+            YOUR NAME
+        </label>
+
+        <input
+            type="text"
+            placeholder="Name"
+            required
+        >
+
+
+        <label>
+            EMAIL ADDRESS
+        </label>
+
+        <input
+            type="email"
+            placeholder="you@example.com"
+            required
+        >
+
+
+        <label>
+            PHONE NUMBER
+        </label>
+
+        <input
+            type="tel"
+            placeholder="Best number to reach you"
+            required
+        >
+
+
+        <label>
+            WHAT DO YOU NEED?
+        </label>
+
+        <select required>
+
+            <option value="">
+                Select a service
+            </option>
+
+            <option>
+                Balcony Safety Nets
+            </option>
+
+            <option>
+                Cricket Practice Nets
+            </option>
+
+            <option>
+                Sports Safety Nets
+            </option>
+
+            <option>
+                Other Custom Netting
+            </option>
+
+        </select>
+
+
+        <label>
+            NET TYPE & PURPOSE
+        </label>
+
+        <textarea
+            placeholder="Tell us about your requirements"
+            required>
+        </textarea>
+
+
+        <button type="submit">
+            SEND REQUEST →
+        </button>
+
+    </form>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>
+        ESWAR SAFETY NETS
+    </h2>
+
+    <p>
+        Thoughtful protection, fitted to your space.
+    </p>
+
+    <p>
+        © 2026 Eswar Safety Nets
+    </p>
+
+</footer>
+
+
+
+<script>
+
+document.getElementById("quoteForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    alert(
+        "Thank you! Your request has been received. We will contact you soon."
+    );
+
+});
+
+</script>
+
+</body>
+</html>
