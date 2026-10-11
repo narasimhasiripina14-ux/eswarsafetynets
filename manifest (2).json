@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Eswar Safety Nets",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Eswar Nets",
+  "start_url": "/",
+  "theme_color": "#1565c0",
+  "id": "/eswarsafetynets/",
+  "description": "Eswar Safety Nets - Safety net installation and services"
+}
