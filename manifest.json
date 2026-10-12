@@ -1,13 +1,14 @@
 
 {
   "id": "./",
-  "name": "My Website App",
-  "short_name": "My App",
+  "name": "ESWAR Safety Nets",
+  "short_name": "ESWAR Nets",
+  "description": "ESWAR Safety Nets - safety net products and services.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#0875d1",
   "icons": [
     {
       "src": "./icon-192.png",
